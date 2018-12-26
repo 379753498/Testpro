@@ -1,0 +1,32 @@
+Spring Boot提供了一个@SpringBootTest注释，spring-test @ContextConfiguration当您需要Spring Boot功能时，它可以用作标准注释的替代方法。
+注释通过ApplicationContext在测试中创建使用来实现SpringApplication。
+您可以使用webEnvironment属性@SpringBootTest来进一步优化测试的运行方式：
+
+MOCK：
+加载a WebApplicationContext并提供模拟servlet环境。使用此批注时，不会启动嵌入式servlet容器。
+如果servlet API不在您的类路径中，则此模式将透明地回退到创建常规非Web ApplicationContext。
+它可以与基于@AutoConfigureMockMvcfor MockMvc的应用程序的测试结合使用 。
+RANDOM_PORT：
+加载ServletWebServerApplicationContext并提供真正的servlet环境。嵌入式servlet容器启动并在随机端口上侦听。
+DEFINED_PORT：
+加载a ServletWebServerApplicationContext并提供真正的servlet环境。
+嵌入式servlet容器启动并侦听定义的端口（来自您application.properties或默认端口8080）。
+NONE：
+ApplicationContext通过使用SpringApplication但不提供 任何 servlet环境（模拟或其他）来加载。
+
+如果您的测试是@Transactional，则默认情况下会在每个测试方法结束时回滚事务。但是，
+当使用这种安排RANDOM_PORT或 DEFINED_PORT隐式提供真正的servlet环境时，
+HTTP客户端和服务器在不同的线程中运行，因此在单独的事务中运行。在这种情况下，在服务器上启动的任何事务都不会回滚
+不要忘记添加@RunWith(SpringRunner.class)到您的测试中。否则，将忽略注释。
+----------------------------------------------------------------------
+检测测试配置   SpringbootTest会自动进行算法查询含有注解@SpringBootApplicationor的类
+
+如果您熟悉Spring Test Framework，则可能习惯使用 @ContextConfiguration(classes=…​)
+以指定@Configuration要加载的Spring 。或者，您可能经常@Configuration在测试中使用嵌套类。
+在测试Spring Boot应用程序时，通常不需要这样做。@*Test 只要您没有明确定义，Spring Boot的注释就会自动搜索您的主要配置。
+搜索算法从包含测试的包开始工作，
+直到找到用@SpringBootApplicationor 
+注释的类@SpringBootConfiguration。
+只要您以合理的方式构建代码，通常就会找到主要配置。
+
+

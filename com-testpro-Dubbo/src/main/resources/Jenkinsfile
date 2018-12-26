@@ -1,0 +1,56 @@
+node{
+    stage("代码检出 ")
+    {
+     checkout([$class: 'SubversionSCM',
+      additionalCredentials: [],
+       excludedCommitMessages: ''
+       , excludedRegions: '',
+       excludedRevprop: '',
+       excludedUsers: '',
+       filterChangelog: false,
+        ignoreDirPropChanges:
+         false, includedRegions: '',
+         locations: [[cancelProcessOnExternalsFail: true,
+          credentialsId: '0f12c5ff-3c93-486f-8254-4e54f598162b',
+           depthOption: 'infinity', ignoreExternalsOption: true,
+            local: '.',
+             remote: 'https://172.19.8.2:8443/svn/测试组专用/业务总结/生命线项目/Testpro@HEAD']], quietOperation: true, workspaceUpdater: [$class: 'UpdateUpdater']])
+    }
+     stage("清理程序 ")
+    {
+    mvnhome=tool 'maven-3.5.4'
+    dir('com-testpro-Dubbo') {
+
+              if(isUnix())
+              {
+                sh "'${mvnhome}/bin/mvn' clean"
+              }else
+              {
+                bat(/"${mvnhome}\bin\mvn" clean/)
+              }
+              echo "isUnix() "
+              echo "程序清理完毕"
+        }
+    }
+
+   stage("测试 ")
+    {
+  //mvnhome=tool 'maven-3.5.4'
+    dir('com-testpro-Dubbo') {
+
+              if(isUnix())
+              {
+                sh "'${mvnhome}/bin/mvn' test"
+              }else
+              {
+                bat(/"${mvnhome}\bin\mvn" test/)
+              }
+              echo "isUnix() "
+              echo "程序测试完毕"
+        }
+    }
+    stage("发布测试报告 ")
+        {
+    allure includeProperties: false, jdk: '1.80', results: [[path: 'com-testpro-Dubbo\\target\\allure-results']]
+    }
+}

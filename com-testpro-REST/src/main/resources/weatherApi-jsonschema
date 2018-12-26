@@ -1,0 +1,381 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "date",
+    "message",
+    "status",
+    "city",
+    "count",
+    "data"
+  ],
+  "properties": {
+    "date": {
+      "$id": "#/properties/date",
+      "type": "string",
+      "title": "The Date Schema",
+      "default": "",
+      "examples": [
+        "20180910"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "message": {
+      "$id": "#/properties/message",
+      "type": "string",
+      "title": "The Message Schema",
+      "default": "",
+      "examples": [
+        "Success !"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "status": {
+      "$id": "#/properties/status",
+      "type": "integer",
+      "title": "The Status Schema",
+      "default": 0,
+      "examples": [
+        200
+      ]
+    },
+    "city": {
+      "$id": "#/properties/city",
+      "type": "string",
+      "title": "The City Schema",
+      "default": "",
+      "examples": [
+        "北京"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "count": {
+      "$id": "#/properties/count",
+      "type": "integer",
+      "title": "The Count Schema",
+      "default": 0,
+      "examples": [
+        2
+      ]
+    },
+    "data": {
+      "$id": "#/properties/data",
+      "type": "object",
+      "title": "The Data Schema",
+      "required": [
+        "shidu",
+        "pm25",
+        "pm10",
+        "quality",
+        "wendu",
+        "ganmao",
+        "yesterday",
+        "forecast"
+      ],
+      "properties": {
+        "shidu": {
+          "$id": "#/properties/data/properties/shidu",
+          "type": "string",
+          "title": "The Shidu Schema",
+          "default": "",
+          "examples": [
+            "44%"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "pm25": {
+          "$id": "#/properties/data/properties/pm25",
+          "type": "integer",
+          "title": "The Pm25 Schema",
+          "default": 0,
+          "examples": [
+            30
+          ]
+        },
+        "pm10": {
+          "$id": "#/properties/data/properties/pm10",
+          "type": "integer",
+          "title": "The Pm10 Schema",
+          "default": 0,
+          "examples": [
+            54
+          ]
+        },
+        "quality": {
+          "$id": "#/properties/data/properties/quality",
+          "type": "string",
+          "title": "The Quality Schema",
+          "default": "",
+          "examples": [
+            "良"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "wendu": {
+          "$id": "#/properties/data/properties/wendu",
+          "type": "string",
+          "title": "The Wendu Schema",
+          "default": "",
+          "examples": [
+            "25"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "ganmao": {
+          "$id": "#/properties/data/properties/ganmao",
+          "type": "string",
+          "title": "The Ganmao Schema",
+          "default": "",
+          "examples": [
+            "极少数敏感人群应减少户外活动"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "yesterday": {
+          "$id": "#/properties/data/properties/yesterday",
+          "type": "object",
+          "title": "The Yesterday Schema",
+          "required": [
+            "date",
+            "sunrise",
+            "high",
+            "low",
+            "sunset",
+            "aqi",
+            "fx",
+            "fl",
+            "type",
+            "notice"
+          ],
+          "properties": {
+            "date": {
+              "$id": "#/properties/data/properties/yesterday/properties/date",
+              "type": "string",
+              "title": "The Date Schema",
+              "default": "",
+              "examples": [
+                "09日星期日"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "sunrise": {
+              "$id": "#/properties/data/properties/yesterday/properties/sunrise",
+              "type": "string",
+              "title": "The Sunrise Schema",
+              "default": "",
+              "examples": [
+                "05:48"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "high": {
+              "$id": "#/properties/data/properties/yesterday/properties/high",
+              "type": "string",
+              "title": "The High Schema",
+              "default": "",
+              "examples": [
+                "高温 28.0℃"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "low": {
+              "$id": "#/properties/data/properties/yesterday/properties/low",
+              "type": "string",
+              "title": "The Low Schema",
+              "default": "",
+              "examples": [
+                "低温 16.0℃"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "sunset": {
+              "$id": "#/properties/data/properties/yesterday/properties/sunset",
+              "type": "string",
+              "title": "The Sunset Schema",
+              "default": "",
+              "examples": [
+                "18:35"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "aqi": {
+              "$id": "#/properties/data/properties/yesterday/properties/aqi",
+              "type": "integer",
+              "title": "The Aqi Schema",
+              "default": 0,
+              "examples": [
+                51
+              ]
+            },
+            "fx": {
+              "$id": "#/properties/data/properties/yesterday/properties/fx",
+              "type": "string",
+              "title": "The Fx Schema",
+              "default": "",
+              "examples": [
+                "西南风"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "fl": {
+              "$id": "#/properties/data/properties/yesterday/properties/fl",
+              "type": "string",
+              "title": "The Fl Schema",
+              "default": "",
+              "examples": [
+                "<3级"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "type": {
+              "$id": "#/properties/data/properties/yesterday/properties/type",
+              "type": "string",
+              "title": "The Type Schema",
+              "default": "",
+              "examples": [
+                "晴"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "notice": {
+              "$id": "#/properties/data/properties/yesterday/properties/notice",
+              "type": "string",
+              "title": "The Notice Schema",
+              "default": "",
+              "examples": [
+                "愿你拥有比阳光明媚的心情"
+              ],
+              "pattern": "^(.*)$"
+            }
+          }
+        },
+        "forecast": {
+          "$id": "#/properties/data/properties/forecast",
+          "type": "array",
+          "title": "The Forecast Schema",
+          "items": {
+            "$id": "#/properties/data/properties/forecast/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "date",
+              "sunrise",
+              "high",
+              "low",
+              "sunset",
+              "aqi",
+              "fx",
+              "fl",
+              "type",
+              "notice"
+            ],
+            "properties": {
+              "date": {
+                "$id": "#/properties/data/properties/forecast/items/properties/date",
+                "type": "string",
+                "title": "The Date Schema",
+                "default": "",
+                "examples": [
+                  "10日星期一"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "sunrise": {
+                "$id": "#/properties/data/properties/forecast/items/properties/sunrise",
+                "type": "string",
+                "title": "The Sunrise Schema",
+                "default": "",
+                "examples": [
+                  "05:49"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "high": {
+                "$id": "#/properties/data/properties/forecast/items/properties/high",
+                "type": "string",
+                "title": "The High Schema",
+                "default": "",
+                "examples": [
+                  "高温 28.0℃"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "low": {
+                "$id": "#/properties/data/properties/forecast/items/properties/low",
+                "type": "string",
+                "title": "The Low Schema",
+                "default": "",
+                "examples": [
+                  "低温 19.0℃"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "sunset": {
+                "$id": "#/properties/data/properties/forecast/items/properties/sunset",
+                "type": "string",
+                "title": "The Sunset Schema",
+                "default": "",
+                "examples": [
+                  "18:33"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "aqi": {
+                "$id": "#/properties/data/properties/forecast/items/properties/aqi",
+                "type": "integer",
+                "title": "The Aqi Schema",
+                "default": 0,
+                "examples": [
+                  53
+                ]
+              },
+              "fx": {
+                "$id": "#/properties/data/properties/forecast/items/properties/fx",
+                "type": "string",
+                "title": "The Fx Schema",
+                "default": "",
+                "examples": [
+                  "南风"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "fl": {
+                "$id": "#/properties/data/properties/forecast/items/properties/fl",
+                "type": "string",
+                "title": "The Fl Schema",
+                "default": "",
+                "examples": [
+                  "<3级"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "type": {
+                "$id": "#/properties/data/properties/forecast/items/properties/type",
+                "type": "string",
+                "title": "The Type Schema",
+                "default": "",
+                "examples": [
+                  "多云"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "notice": {
+                "$id": "#/properties/data/properties/forecast/items/properties/notice",
+                "type": "string",
+                "title": "The Notice Schema",
+                "default": "",
+                "examples": [
+                  "阴晴之间，谨防紫外线侵扰"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

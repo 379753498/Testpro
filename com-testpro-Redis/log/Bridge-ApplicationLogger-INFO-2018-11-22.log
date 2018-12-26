@@ -1,0 +1,8 @@
+2018-11-22 17:07:53.509 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-11-22 17:07:58.521 [main] INFO  org.com.testpro.Aop.ChoseDataSource - 数据库相同不需要进行切换DataSource15
+2018-11-22 17:07:58.680 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2018-11-22 17:07:59.681 [main] INFO  org.com.testpro.RedisTest.RedisDataCheck - SensorData [bridgename=繁华大道跨南淝河大桥, equipmentid=null, equipmentname=挠度D10, devicePosition=null, gatewaynum=HF_FHDD_DY000001, modularnum=402884405026354d6005, pathnum=null, leixing=静态挠度, filepath=39_11, filerow=0]
+2018-11-22 17:07:59.819 [main] INFO  io.lettuce.core.EpollProvider - Starting without optional epoll library
+2018-11-22 17:07:59.822 [main] INFO  io.lettuce.core.KqueueProvider - Starting without optional kqueue library
+2018-11-22 17:08:03.308 [main] INFO  org.com.testpro.RedisTest.RedisDataCheck - 测试通过未发现Redis中有上传重复的时间戳数据
+2018-11-22 17:08:03.719 [Thread-2] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
